@@ -28,9 +28,9 @@ error_validation "logs creation"
 
 # Backend configuration
 sudo dnf module disable nodejs -y &>>$log_file
-error_validation "NodeJS module disable"
+error_validation "Disable default version of NodeJS"
 sudo dnf module enable nodejs:20 -y &>> $log_file
-error_validation "NodeJS module enable"
+error_validation "Enable code specific version of NodeJS"
 sudo dnf install nodejs -y &>> $log_file
 error_validation "NodeJS installation"
 
