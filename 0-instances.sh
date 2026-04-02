@@ -1,7 +1,7 @@
 #!/bin/bash
 ami="ami-0220d79f3f480ecf5"
-sg="sg-03b441e0ba008f925"
-zone="Z0711084A6IKM873A3LI"
+sg="sg-0ce5a2e10ef96202d"
+zone="Z050001923LY47PA0PTIR"
 record="rscloudservices.icu"
 
 echo "Please enter the instances to be created followed by a space"
@@ -28,7 +28,7 @@ do
  #selecting IP address based on instance component
  if [ $instance = frontend ]; then
   ip=$(aws ec2 describe-instances --region us-east-1 --filters "Name=instance-id,Values=$instance_id" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
-  record_name=$record
+  record_name="expense.$record"
  else
   ip=$(aws ec2 describe-instances --region us-east-1 --filters "Name=instance-id,Values=$instance_id" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
   record_name="$instance.$record"
@@ -58,3 +58,5 @@ error_validation "IP address collection"
 error_validation r53_records
 echo "The r53 record for $instance is $instance.$record"
 done
+
+

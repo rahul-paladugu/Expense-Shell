@@ -1,6 +1,5 @@
 #!/bin/bash
-BLUE='\e[34m'
-YELLOW='\e[33m'
+
 GREEN='\e[32m'
 RED='\e[31m'
 NC='\e[0m'   # No Color (reset)
