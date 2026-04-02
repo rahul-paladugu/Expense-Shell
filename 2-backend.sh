@@ -18,7 +18,7 @@ error_validation() {
       echo -e "${RED}Error performing $1. Please review the logs.${NC}"
       exit 1
     else
-      echo -e "${GREEN}Successfully implemented $1.${NC}"
+      echo -e "${GREEN}$1 is success.${NC}"
     fi
 }
 #Logs Creation
