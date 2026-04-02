@@ -7,10 +7,10 @@ start_time=$(date +%s)
 #Check root access for the admin tasks
 root=$(id -u)
 if [ $root -ne 0 ]; then
-  echo -e "${RED}Please run the script with root privileges.${NC}"
+  echo -e"${RED}Please run the script with root privileges.${NC}"
   exit 1
 else
-  echo -e "${GREEN}Root access verified. Proceeding with the script...${NC}"
+  echo -e"${GREEN}Root access verified. Proceeding with the script...${NC}"
 fi
 
 #Logs Creation
@@ -20,10 +20,10 @@ log_file="/var/log/expense/mysql_configuration.log"
 #Exit on an error
 error_validation() {
     if [ $? -ne 0 ]; then
-      echo -e "${RED}Error performing $1. Please review the logs.${NC}"
+      echo -e"${RED}Error performing $1. Please review the logs.${NC}"
       exit 1
     else
-      echo -e "${GREEN} $1 is successful.${NC}"
+      echo -e"${GREEN} $1 is successful.${NC}"
     fi
 }
 
