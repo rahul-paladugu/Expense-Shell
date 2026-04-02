@@ -38,7 +38,7 @@ error_validation "Remove default nginx content"
 curl -o /tmp/frontend.zip https://expense-joindevops.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$log_file
 cd /usr/share/nginx/html
 error_validation "change to html directory"
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>>$log_file
 error_validation "Unzip code"
 cp /home/ec2-user/Expense-Shell-Script/expense.conf /etc/nginx/default.d/expense.conf
 error_validation "copy expense-config"
