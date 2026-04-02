@@ -3,7 +3,7 @@
 GREEN='\e[32m'
 RED='\e[31m'
 NC='\e[0m'   # No Color (reset)
-
+start_time=$(date +%s)
 #Check root access for the admin tasks
 root=$(id -u)
 if [ $root -ne 0 ]; then
@@ -15,7 +15,7 @@ fi
 
 #Logs Creation
 mkdir -p /var/log/expense
-log_file="/var/log/expense/mysql_installation.log"
+log_file="/var/log/expense/mysql_configuration.log"
 
 #Exit on an error
 error_validation() {
@@ -23,7 +23,7 @@ error_validation() {
       echo -e "${RED}Error performing $1. Please review the logs.${NC}"
       exit 1
     else
-      echo -e "${GREEN}Successfully implemented $1.${NC}"
+      echo -e "${GREEN} $1 is successful.${NC}"
     fi
 }
 
@@ -37,4 +37,6 @@ error_validation "Enable MySQL server service"
 
 #Configure mysql server
 sudo mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $log_file
-error_validation "MySQL server secure installation"
+error_validation "Set admin password for MySQL server"
+end_time=$(date +%s)
+echo -e "${GREEN}MySQL server installation and configuration is completed successfully in $(($end_time - $start_time)) Seconds.${NC}"
