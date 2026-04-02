@@ -63,7 +63,7 @@ error_validation "Enable backend service"
 #Load schema to mysql
 sudo dnf install mysql -y &>> $log_file
 error_validation "MySQL client installation"
-mysql -h mysql.rscloudservices.icu -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h mysql.rscloudservices.icu -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$log_file
 error_validation "Schema loading"
 sudo systemctl restart backend
 end_time=$(date +%s)
