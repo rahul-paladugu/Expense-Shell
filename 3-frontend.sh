@@ -45,4 +45,4 @@ error_validation "copy expense-config"
 sudo systemctl restart nginx
 error_validation "Restart Nginx"
 end_time=$(date +%s)
-echo -e "{$GREEN}Frontend configuration is successfully completed in $(($end_time - $start_time)) Seconds.{$NC}"
+echo -e "${GREEN}Frontend configuration is successfully completed in $(($end_time - $start_time)) Seconds.${NC}"
